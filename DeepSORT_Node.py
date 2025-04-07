@@ -46,10 +46,9 @@ class DeepSORT_Node(Node):
             # class label stuff if exists
             if detection.results:
                 class_id = int(detection.results[0].id)      
-                score = detection.results[0].score           
+                score = float(detection.results[0].score)          
             else:
-                class_id = -1
-                score = 0.0
+                continue
 
             # add detection to array
             detections.append([[x1, y1, width, height], score, int(class_id)])
